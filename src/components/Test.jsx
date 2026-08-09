@@ -1,3 +1,4 @@
+
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Phone, MapPin, Send, Navigation } from "lucide-react";
@@ -6,8 +7,14 @@ import { useTranslation } from "react-i18next";
 
 const Contact = () => {
   const { t } = useTranslation();
+
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const inView = useInView(ref, {
+    once: true,
+    margin: "-80px",
+  });
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -16,7 +23,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     toast.success(t("contact.success"));
+
     setForm({
       name: "",
       phone: "",
@@ -25,8 +34,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
-       <motion.div
+    <section id="contact" ref={ref}>
+      {/* =========================
+          CONTACT HEADING
+      ========================== */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
@@ -48,7 +60,13 @@ const Contact = () => {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {/* =========================
+          CONTACT GRID
+      ========================== */}
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-start">
+        {/* =========================
+            CONTACT FORM
+        ========================== */}
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, x: -20 }}
@@ -133,6 +151,9 @@ const Contact = () => {
           </button>
         </motion.form>
 
+        {/* =========================
+            RIGHT SIDE
+        ========================== */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -217,8 +238,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
-
-

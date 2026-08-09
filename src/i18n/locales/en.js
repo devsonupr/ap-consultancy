@@ -118,7 +118,7 @@ const en = {
   },
   mobileCta: {
     call: "Call Now",
-    quote: "Get Quote",
+    "whatsapp": "Get WhatsApp"
   },
 };
 

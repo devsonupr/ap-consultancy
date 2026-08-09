@@ -118,7 +118,7 @@ const hi = {
   },
   mobileCta: {
     call: "कॉल करें",
-    quote: "कोटेशन लें",
+    "whatsapp": "व्हाट्सऐप करें"
   },
 };
 
