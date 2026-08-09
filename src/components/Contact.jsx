@@ -5,9 +5,15 @@ import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 
 const Contact = () => {
-  const { t } = useTranslation();
+    const { t } = useTranslation();
+
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const inView = useInView(ref, {
+    once: true,
+    margin: "-80px",
+  });
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -16,7 +22,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     toast.success(t("contact.success"));
+
     setForm({
       name: "",
       phone: "",
@@ -24,8 +32,9 @@ const Contact = () => {
     });
   };
 
+
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" ref={ref} className="section-padding">
        <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -75,7 +84,7 @@ const Contact = () => {
                   name: e.target.value,
                 })
               }
-              className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 min-h-[44px]"
+              className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 min-h-11"
               placeholder={t("contact.namePh")}
             />
           </div>
@@ -96,7 +105,7 @@ const Contact = () => {
                   phone: e.target.value,
                 })
               }
-              className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 min-h-[44px]"
+              className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 min-h-11"
               placeholder={t("contact.phonePh")}
             />
           </div>
@@ -125,7 +134,7 @@ const Contact = () => {
           {/* SUBMIT BUTTON */}
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity min-h-[44px]"
+            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3.5 rounded-md text-sm font-medium hover:opacity-90 transition-opacity min-h-11"
           >
             <Send size={16} />
 
@@ -217,6 +226,8 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
 
 
 
