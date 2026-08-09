@@ -186,7 +186,7 @@ const Contact = () => {
           </div>
 
           {/* GOOGLE MAP */}
-          <div className="rounded-xl overflow-hidden border border-border aspect-[4/3]">
+          <div className="rounded-xl overflow-hidden border border-border aspect-4/3">
             <iframe
               title="AP Engineering Consultancy Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29464.06!2d84.00!3d21.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a20d5ccff0ae8d3%3A0x7fc0aa3a7e0d8b0a!2sJharsuguda%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000"
